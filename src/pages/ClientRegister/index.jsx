@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import Input from "../../components/Input";
-import { Container, InputColumn, InputRow, Title } from "./styles";
+import {
+  Container,
+  InputColumn,
+  InputRow,
+  Title,
+  ButtonContainer,
+} from "./styles";
 import Divider from "../../components/Divider";
+import Button from "../../components/Button/Index";
+import InputField from "../../components/InputField";
 
 export default function ClientRegister() {
   const [clientName, setClientName] = useState("");
@@ -15,41 +23,44 @@ export default function ClientRegister() {
       <Title>Cadastro de Clientes</Title>
       <Divider />
       <InputColumn>
-        <Input
+        <InputField
           value={clientName}
           onValueChange={(e) => setClientName(e.target.value)}
-          placeholder={"Nome do cliente"}
+          label={"Nome do cliente:"}
         />
         <InputRow>
-          <Input
+          <InputField
             value={birthday}
             onValueChange={(e) => setBirthday(e.target.value)}
-            placeholder={"Data de Nascimento"}
+            label={"Data de Nascimento:"}
           />
-          <Input
+          <InputField
             value={cpf}
             onValueChange={(e) => setCpf(e.target.value)}
-            placeholder={"CPF"}
+            label={"CPF:"}
           />
         </InputRow>
-        <Input
+        <InputField
           value={road}
           onValueChange={(e) => setRoad(e.target.value)}
-          placeholder={"Logradouro"}
+          label={"Logradouro:"}
         />
         <InputRow>
-          <Input
+          <InputField
             value={neighborhood}
             onValueChange={(e) => setNeighborhood(e.target.value)}
-            placeholder={"Bairro"}
+            label={"Bairro:"}
           />
-          <Input
+          <InputField
             value={city}
             onValueChange={(e) => setCity(e.target.value)}
-            placeholder={"Cidade"}
+            label={"Cidade:"}
           />
         </InputRow>
       </InputColumn>
+      <ButtonContainer>
+        <Button onClick={() => {}} buttonTitle={"SALVAR"} />
+      </ButtonContainer>
     </Container>
   );
 }

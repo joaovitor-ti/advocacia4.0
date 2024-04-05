@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     display:flex;
@@ -28,4 +28,8 @@ export const InputRow = styled.div`
     display: flex;
     flex-direction: row;
     gap: 25px;
+`
+
+export const ButtonContainer = styled.div`
+    margin-top: auto;
 `
