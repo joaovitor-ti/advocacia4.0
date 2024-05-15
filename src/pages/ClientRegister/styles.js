@@ -31,5 +31,6 @@ export const InputRow = styled.div`
 `
 
 export const ButtonContainer = styled.div`
+    width: 100%;
     margin-top: auto;
 `

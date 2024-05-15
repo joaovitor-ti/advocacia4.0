@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   Container,
   InputColumn,
@@ -12,11 +13,31 @@ import InputField from "../../components/InputField";
 
 export default function ClientRegister() {
   const [clientName, setClientName] = useState("");
+  const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
   const [cpf, setCpf] = useState("");
   const [road, setRoad] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [city, setCity] = useState("");
+
+  async function register() {
+    await axios
+      .post("http://localhost:3000/clients", {
+        name: clientName,
+        email: email,
+        birthday: birthday,
+        cpf: cpf,
+        road: road,
+        neighborhood: neighborhood,
+        city: city,
+      })
+      .then(() => {
+        alert("Cadastro realizado com sucesso");
+      })
+      .catch(() => {
+        alert("Algo deu errado");
+      });
+  }
   return (
     <Container>
       <Title>Cadastro de Clientes</Title>
@@ -26,6 +47,11 @@ export default function ClientRegister() {
           value={clientName}
           onValueChange={(e) => setClientName(e.target.value)}
           label={"Nome do cliente:"}
+        />
+        <InputField
+          value={email}
+          onValueChange={(e) => setEmail(e.target.value)}
+          label={"Email:"}
         />
         <InputRow>
           <InputField
@@ -58,7 +84,7 @@ export default function ClientRegister() {
         </InputRow>
       </InputColumn>
       <ButtonContainer>
-        <Button onClick={() => {}} buttonTitle={"SALVAR"} />
+        <Button onClick={register} buttonTitle={"SALVAR"} />
       </ButtonContainer>
     </Container>
   );
