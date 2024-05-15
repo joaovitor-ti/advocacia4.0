@@ -1,40 +1,19 @@
 import React, { useState } from "react";
-import Input from "../../components/Input";
-import {
-  Container,
-  InputColumn,
-  InputRow,
-  Title,
-  ButtonContainer,
-} from "./styles";
-import Divider from "../../components/Divider";
-import Button from "../../components/Button/Index";
-import InputField from "../../components/InputField";
+import "../Login/style.css"
 
 export default function AdminLogin() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   return (
-    <Container>
-      <Title>Login</Title>
-      <Divider />
-      <InputColumn>
-        <InputField
-          value={email}
-          onValueChange={(e) => setEmail(e.target.value)}
-          label={"E-mail:"}
-        />
-        <InputRow>
-          <InputField
-            value={password}
-            onValueChange={(e) => setPassword(e.target.value)}
-            label={"Senha:"}
-          />
-        </InputRow>
-      </InputColumn>
-      <ButtonContainer>
-        <Button onClick={() => {}} buttonTitle={"SALVAR"} />
-      </ButtonContainer>
-    </Container>
+    <div class="page">
+        <form method="POST" class="formLogin" action="menu.html">
+            <h1>Login</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for="email">E-mail</label>
+            <input type="email" placeholder="Digite seu e-mail" autofocus="true" name="email" />
+            <label for="password">Senha</label>
+            <input type="password" placeholder="Digite sua senha" name="password" />
+            <a href="/">Esqueci minha senha</a>
+            <input type="button" value="Acessar" class="btn" id="btnAcessar" />
+        </form>
+    </div>
   );
 }

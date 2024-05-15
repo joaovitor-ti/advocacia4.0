@@ -1,17 +1,16 @@
 import styled from "styled-components"
 
 export const InputContainer = styled.input`
-    background: #d9d9d9;
-    border-radius: 14px;
-    width: 100%;
-    height: 44px;
-    padding: 0 20px;
-    color: #000000;
-    font-size: 18px;
-    box-sizing: border-box;
-    border: none;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
 
     &:focus {
-        outline: none;
+        border: 1px solid #f72585;
     }
 `
