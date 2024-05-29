@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../Login/style.css";
+import { useNavigate } from "react-router-dom";
 
-export default function AdminLogin() {
+export default function Login() {
+  let navigate = useNavigate();
   return (
     <div class="page">
       <form method="POST" class="formLogin" action="menu.html">
@@ -17,7 +19,7 @@ export default function AdminLogin() {
         <label for="password">Senha</label>
         <input type="password" placeholder="Digite sua senha" name="password" />
         <a href="/">Esqueci minha senha</a>
-        <input type="button" value="Acessar" class="btn" id="btnAcessar" />
+        <input type="button" value="Acessar" class="btn" id="btnAcessar" onClick={() => navigate('/home')}/>
       </form>
     </div>
   );

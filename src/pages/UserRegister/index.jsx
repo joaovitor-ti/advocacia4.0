@@ -10,7 +10,6 @@ import {
 import Divider from "../../components/Divider";
 import Button from "../../components/Button/Index";
 import InputField from "../../components/InputField";
-import { useNavigate } from "react-router-dom";
 
 export default function ClientRegister() {
   const [clientName, setClientName] = useState("");
@@ -20,8 +19,6 @@ export default function ClientRegister() {
   const [road, setRoad] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [city, setCity] = useState("");
-  let navigate = useNavigate();
-
 
   async function register() {
     await axios
@@ -42,6 +39,24 @@ export default function ClientRegister() {
       });
   }
 
+  async function back() {
+    await axios
+      .post("http://localhost:3000/clients", {
+        name: clientName,
+        email: email,
+        birthday: birthday,
+        cpf: cpf,
+        road: road,
+        neighborhood: neighborhood,
+        city: city,
+      })
+      .then(() => {
+        alert("Cadastro realizado com sucesso");
+      })
+      .catch(() => {
+        alert("Algo deu errado");
+      });
+  }
   return (
     <Container>
       <Title>Cadastro de Clientes</Title>
@@ -89,7 +104,7 @@ export default function ClientRegister() {
       </InputColumn>
       <ButtonContainer>
         <Button onClick={register} buttonTitle={"SALVAR"} />
-        <Button onClick={() => navigate('/client')} buttonTitle={"VOLTAR"} />
+        <Button onClick={back} buttonTitle={"VOLTAR"} />
       </ButtonContainer>
     </Container>
   );
