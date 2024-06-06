@@ -22,10 +22,9 @@ export default function ClientRegister() {
   const [city, setCity] = useState("");
   let navigate = useNavigate();
 
-
   async function register() {
     await axios
-      .post("http://localhost:3000/clients", {
+      .post("http://localhost:3100/clients", {
         name: clientName,
         email: email,
         birthday: birthday,
@@ -89,7 +88,7 @@ export default function ClientRegister() {
       </InputColumn>
       <ButtonContainer>
         <Button onClick={register} buttonTitle={"SALVAR"} />
-        <Button onClick={() => navigate('/client')} buttonTitle={"VOLTAR"} />
+        <Button onClick={() => navigate("/client")} buttonTitle={"VOLTAR"} />
       </ButtonContainer>
     </Container>
   );
