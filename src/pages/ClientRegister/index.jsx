@@ -48,7 +48,7 @@ export default function ClientRegister() {
           margin="normal"
           fullWidth
           value={clientName}
-          onChange={setClientName}
+          onChange={(e) => setClientName(e.target.value)}
           InputLabelProps={{ style: { color: "#FFF" } }}
           InputProps={{
             style: { color: "#FFF" },
@@ -78,7 +78,7 @@ export default function ClientRegister() {
           margin="normal"
           fullWidth
           value={email}
-          onChange={setEmail}
+          onChange={(e) => setEmail(e.target.value)}
           InputLabelProps={{ style: { color: "#FFF" } }}
           InputProps={{
             style: { color: "#FFF" },
@@ -109,7 +109,7 @@ export default function ClientRegister() {
             margin="normal"
             fullWidth
             value={birthday}
-            onChange={setBirthday}
+            onChange={(e) => setBirthday(e.target.value)}
             InputLabelProps={{ style: { color: "#FFF" } }}
             InputProps={{
               style: { color: "#FFF" },
@@ -139,7 +139,7 @@ export default function ClientRegister() {
             margin="normal"
             fullWidth
             value={cpf}
-            onChange={setCpf}
+            onChange={(e) => setCpf(e.target.value)}
             InputLabelProps={{ style: { color: "#FFF" } }}
             InputProps={{
               style: { color: "#FFF" },
@@ -170,7 +170,7 @@ export default function ClientRegister() {
           margin="normal"
           fullWidth
           value={road}
-          onChange={setRoad}
+          onChange={(e) => setRoad(e.target.value)}
           InputLabelProps={{ style: { color: "#FFF" } }}
           InputProps={{
             style: { color: "#FFF" },
@@ -201,7 +201,7 @@ export default function ClientRegister() {
             margin="normal"
             fullWidth
             value={neighborhood}
-            onChange={setNeighborhood}
+            onChange={(e) => setNeighborhood(e.target.value)}
             InputLabelProps={{ style: { color: "#FFF" } }}
             InputProps={{
               style: { color: "#FFF" },
@@ -231,7 +231,7 @@ export default function ClientRegister() {
             margin="normal"
             fullWidth
             value={city}
-            onChange={setCity}
+            onChange={(e) => setCity(e.target.value)}
             InputLabelProps={{ style: { color: "#FFF" } }}
             InputProps={{
               style: { color: "#FFF" },
