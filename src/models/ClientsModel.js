@@ -1,5 +1,6 @@
-class UserModel {
+class Clients {
   name
+  email
   birthday
   cpf
   road

@@ -21,16 +21,17 @@ export const InputColumn = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 40px;
-    gap: 20px;
 `
 
 export const InputRow = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 10px;
 `
 
 export const ButtonContainer = styled.div`
     width: 100%;
+    display: flex;
+    flex-direction: column;
     margin-top: auto;
 `

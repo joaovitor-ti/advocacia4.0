@@ -8,9 +8,10 @@ import {
   ButtonContainer,
 } from "./styles";
 import Divider from "../../components/Divider";
-import Button from "../../components/Button/Index";
 import InputField from "../../components/InputField";
 import { useNavigate } from "react-router-dom";
+import Clients from "../Clients";
+import { TextField, Button } from "@mui/material";
 
 export default function ClientRegister() {
   const [clientName, setClientName] = useState("");
@@ -24,15 +25,10 @@ export default function ClientRegister() {
 
   async function register() {
     await axios
-      .post("http://localhost:3100/clients", {
-        name: clientName,
-        email: email,
-        birthday: birthday,
-        cpf: cpf,
-        road: road,
-        neighborhood: neighborhood,
-        city: city,
-      })
+      .post(
+        "http://localhost:3100/clients",
+        new Clients(clientName, email, birthday, cpf, road, neighborhood, city)
+      )
       .then(() => {
         alert("Cadastro realizado com sucesso");
       })
@@ -46,49 +42,256 @@ export default function ClientRegister() {
       <Title>Cadastro de Clientes</Title>
       <Divider />
       <InputColumn>
-        <InputField
+        <TextField
+          label="Nome do cliente"
+          variant="outlined"
+          margin="normal"
+          fullWidth
           value={clientName}
-          onValueChange={(e) => setClientName(e.target.value)}
-          label={"Nome do cliente:"}
+          onChange={setClientName}
+          InputLabelProps={{ style: { color: "#FFF" } }}
+          InputProps={{
+            style: { color: "#FFF" },
+            classes: {
+              notchedOutline: {
+                borderColor: "#FFF",
+              },
+            },
+          }}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#FFF",
+              },
+              "&:hover fieldset": {
+                borderColor: "#FFF",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "#FFF",
+              },
+            },
+          }}
         />
-        <InputField
+        <TextField
+          label="Email"
+          variant="outlined"
+          margin="normal"
+          fullWidth
           value={email}
-          onValueChange={(e) => setEmail(e.target.value)}
-          label={"Email:"}
+          onChange={setEmail}
+          InputLabelProps={{ style: { color: "#FFF" } }}
+          InputProps={{
+            style: { color: "#FFF" },
+            classes: {
+              notchedOutline: {
+                borderColor: "#FFF",
+              },
+            },
+          }}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#FFF",
+              },
+              "&:hover fieldset": {
+                borderColor: "#FFF",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "#FFF",
+              },
+            },
+          }}
         />
         <InputRow>
-          <InputField
+          <TextField
+            label="Data de Nascimento"
+            variant="outlined"
+            margin="normal"
+            fullWidth
             value={birthday}
-            onValueChange={(e) => setBirthday(e.target.value)}
-            label={"Data de Nascimento:"}
+            onChange={setBirthday}
+            InputLabelProps={{ style: { color: "#FFF" } }}
+            InputProps={{
+              style: { color: "#FFF" },
+              classes: {
+                notchedOutline: {
+                  borderColor: "#FFF",
+                },
+              },
+            }}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#FFF",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#FFF",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#FFF",
+                },
+              },
+            }}
           />
-          <InputField
+          <TextField
+            label="CPF"
+            variant="outlined"
+            margin="normal"
+            fullWidth
             value={cpf}
-            onValueChange={(e) => setCpf(e.target.value)}
-            label={"CPF:"}
+            onChange={setCpf}
+            InputLabelProps={{ style: { color: "#FFF" } }}
+            InputProps={{
+              style: { color: "#FFF" },
+              classes: {
+                notchedOutline: {
+                  borderColor: "#FFF",
+                },
+              },
+            }}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#FFF",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#FFF",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#FFF",
+                },
+              },
+            }}
           />
         </InputRow>
-        <InputField
+        <TextField
+          label="Logradouro"
+          variant="outlined"
+          margin="normal"
+          fullWidth
           value={road}
-          onValueChange={(e) => setRoad(e.target.value)}
-          label={"Logradouro:"}
+          onChange={setRoad}
+          InputLabelProps={{ style: { color: "#FFF" } }}
+          InputProps={{
+            style: { color: "#FFF" },
+            classes: {
+              notchedOutline: {
+                borderColor: "#FFF",
+              },
+            },
+          }}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#FFF",
+              },
+              "&:hover fieldset": {
+                borderColor: "#FFF",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "#FFF",
+              },
+            },
+          }}
         />
         <InputRow>
-          <InputField
+          <TextField
+            label="Bairro"
+            variant="outlined"
+            margin="normal"
+            fullWidth
             value={neighborhood}
-            onValueChange={(e) => setNeighborhood(e.target.value)}
-            label={"Bairro:"}
+            onChange={setNeighborhood}
+            InputLabelProps={{ style: { color: "#FFF" } }}
+            InputProps={{
+              style: { color: "#FFF" },
+              classes: {
+                notchedOutline: {
+                  borderColor: "#FFF",
+                },
+              },
+            }}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#FFF",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#FFF",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#FFF",
+                },
+              },
+            }}
           />
-          <InputField
+          <TextField
+            label="Cidade"
+            variant="outlined"
+            margin="normal"
+            fullWidth
             value={city}
-            onValueChange={(e) => setCity(e.target.value)}
-            label={"Cidade:"}
+            onChange={setCity}
+            InputLabelProps={{ style: { color: "#FFF" } }}
+            InputProps={{
+              style: { color: "#FFF" },
+              classes: {
+                notchedOutline: {
+                  borderColor: "#FFF",
+                },
+              },
+            }}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#FFF",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#FFF",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#FFF",
+                },
+              },
+            }}
           />
         </InputRow>
       </InputColumn>
       <ButtonContainer>
-        <Button onClick={register} buttonTitle={"SALVAR"} />
-        <Button onClick={() => navigate("/client")} buttonTitle={"VOLTAR"} />
+        <Button
+          type="button"
+          onClick={register}
+          fullWidth
+          variant="contained"
+          color="primary"
+          sx={{
+            mt: 2,
+            backgroundColor: "#22cf5c",
+            color: "#ffffff",
+            padding: ".5rem 5px",
+            fontSize: "1rem",
+            "&:hover": {
+              backgroundColor: "#1aae49",
+            },
+          }}
+        >
+          SALVAR
+        </Button>
+        <Button
+          type="button"
+          onClick={() => navigate("/client")}
+          fullWidth
+          variant="contained"
+          color="primary"
+          sx={{
+            mt: 2,
+            color: "#ffffff",
+            padding: ".5rem 5px",
+            fontSize: "1rem",
+          }}
+        >
+          Voltar
+        </Button>
       </ButtonContainer>
     </Container>
   );

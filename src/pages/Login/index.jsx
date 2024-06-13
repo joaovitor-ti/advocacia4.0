@@ -62,20 +62,25 @@ export default function Login() {
       return;
     }
 
-    const promise = axios
-      .post("http://localhost:3100/users/login", {
-        email: email,
-        password: password,
-      })
+    const promise = axios.post("http://localhost:3100/users/login", {
+      email: email,
+      password: password,
+    });
+    toast.promise(promise, {
+      pending: "Carregando...",
+      success: "Login efetuado com sucesso",
+      error: {
+        render({ data }) {
+          console.log(data);
+          return `Algo deu errado: ${data.response.data.message}`;
+        },
+      },
+    });
+    promise
       .then(() => {
         navigate("/home");
       })
       .catch((e) => console.log(e));
-    toast.promise(promise, {
-      pending: "Carregando...",
-      success: "Login efetuado com sucesso",
-      error: (error) => `Algo deu errado: ${error.message}`,
-    });
   };
   return (
     <Container maxWidth="xs">
